@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import missions from '../data/missions';
 
 class MissionCard extends React.Component {
   render() {
@@ -10,7 +11,17 @@ class MissionCard extends React.Component {
         <p data-testid="mission-year">{year}</p>
         <p data-testid="mission-country">{country}</p>
         <p data-testid="mission-destination">{destination}</p>
+        {missions.map(() => (
+          <MissionCard
+            key={ name.name }
+            nome={ name.name }
+            idade={ year.year }
+            local={ country.country }
+            destino={ destination.destination }
+          />
+        ))}
       </div>
+
     );
   }
 }
