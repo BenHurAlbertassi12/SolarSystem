@@ -1,35 +1,31 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import missions from '../data/missions';
+import Missions from '../data/missions';
 
-class MissionCard extends React.Component {
-  render() {
-    const { name, year, country, destination } = this.props;
-    return (
-      <div data-testid="mission-card">
-        <p data-testid="mission-name">{name}</p>
-        <p data-testid="mission-year">{year}</p>
-        <p data-testid="mission-country">{country}</p>
-        <p data-testid="mission-destination">{destination}</p>
-        {missions.map(() => (
-          <MissionCard
-            key={ name.name }
-            nome={ name.name }
-            idade={ year.year }
-            local={ country.country }
-            destino={ destination.destination }
-          />
+function App() {
+  return (
+    <div>
+      <h1>Missions</h1>
+      <ul>
+        {Missions.map((mission, index) => (
+          <li key={ index }>
+            <strong>Name: </strong>
+            {mission.name}
+            <br />
+            <strong>Year: </strong>
+            {mission.year}
+            <br />
+            <strong>Country: </strong>
+            {mission.country}
+            <br />
+            <strong>Destination: </strong>
+            {mission.destination}
+            <br />
+            <br />
+          </li>
         ))}
-      </div>
-
-    );
-  }
+      </ul>
+    </div>
+  );
 }
-MissionCard.propTypes = {
 
-  name: PropTypes.string.isRequired,
-  country: PropTypes.string.isRequired,
-  destination: PropTypes.string.isRequired,
-  year: PropTypes.number.isRequired,
-};
-export default MissionCard;
+export default App;
