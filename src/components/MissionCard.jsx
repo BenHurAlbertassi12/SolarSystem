@@ -1,6 +1,6 @@
 import React from 'react';
 import Missions from '../data/missions';
-import './styles.css'; // Importe o arquivo CSS que contém os estilos
+import './styles.css';
 
 function App() {
   return (
